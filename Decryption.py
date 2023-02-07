@@ -113,7 +113,7 @@ class DecryptPage(tk.Frame):
 		tk.Frame.__init__(self, parent) 
 
 		def decrypt_message(self):
-			messages=[]
+			messages = []
 			if self.myCombo.get() == "":
 				showinfo("Alert", "Your must pick a person")
 				return
