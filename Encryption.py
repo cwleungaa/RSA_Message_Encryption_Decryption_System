@@ -44,7 +44,7 @@ class tkinterApp(tk.Tk):
 		self.frames = {} 
 
 		# iterating through a tuple consisting of the different page layouts 
-		for F in (LoginPage, RegisterPage, EncryPage): 
+		for F in (LoginPage, RegisterPage, EncryptPage): 
 
 			frame = F(container, self) 
 
@@ -79,7 +79,7 @@ class LoginPage(tk.Frame):
 				if name == usernameinput1 and password == passwordinput1:
 					global sender
 					sender = usernameinput1
-					controller.show_frame(EncryPage)
+					controller.show_frame(EncryptPage)
 					break
 			else:
 				showinfo("Alert", "Login info is not correct!!!")
@@ -138,13 +138,13 @@ class RegisterPage(tk.Frame):
 			for dpublic_key in dpublic_keys:
 				database_pset.append(dpublic_key[0])
 
-			# generate a random number a such that gcd(a,k) = 1
+			# generate a random number a such that gcd(a, k) = 1
 			while True:
 				a = random.randint(2, k)
 				if a in database_pset:
 					continue
 				else:
-					if math.gcd(a,k) != 1:
+					if math.gcd(a, k) != 1:
 						continue
 					else:
 						public_key = a
@@ -243,9 +243,9 @@ class RegisterPage(tk.Frame):
 				controller.show_frame(LoginPage)
 
 				self.regnameinput.focus()
-				self.regnameinput.delete(0,'end')
-				self.regpasswordinput1.delete(0,'end')
-				self.regpasswordinput2.delete(0,'end')
+				self.regnameinput.delete(0, 'end')
+				self.regpasswordinput1.delete(0, 'end')
+				self.regpasswordinput2.delete(0, 'end')
 				# results = con.execute("SELECT * from data1")
 				# for result in results:
 				# 	print(result[0])
@@ -289,7 +289,7 @@ class RegisterPage(tk.Frame):
 	def postupdate(self):
 		self.regnameinput.focus_set()	
 
-class EncryPage(tk.Frame):
+class EncryptPage(tk.Frame):
 	def __init__(self, parent, controller): 
 		tk.Frame.__init__(self, parent) 
 
@@ -328,7 +328,7 @@ class EncryPage(tk.Frame):
 			texts = self.texts.get("1.0", "end-1c")
 			if texts != "":
 			# encrypt each letter of text
-				with open("message.csv", 'w', newline='') as csvfile:
+				with open("message.csv", 'w', newline = '') as csvfile:
 					encrypted_asc2 = []
 					for text in texts:
 						ord_text = ord(text)
