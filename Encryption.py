@@ -10,9 +10,9 @@ import math
 
 con = sqlite.connect("database.db")
 
-LARGEFONT =("Verdana", 15)
-LARGEFONT2 =("Verdana", 10) 
-LARGEFONT3 =("Verdana", 20) 
+LARGEFONT = ("Verdana", 15)
+LARGEFONT2 = ("Verdana", 10) 
+LARGEFONT3 = ("Verdana", 20) 
 
 sender = ""
 
@@ -126,10 +126,10 @@ class RegisterPage(tk.Frame):
 
 		def reg(self):
 
-			database_pset=[]
+			database_pset = []
 
-			public_key=0
-			secret_key=0
+			public_key = 0
+			secret_key = 0
 
 			dnames = con.execute("SELECT name from data1")
 			dpublic_keys = con.execute("SELECT public_key from data1")
